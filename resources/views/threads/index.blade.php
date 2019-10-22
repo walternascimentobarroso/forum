@@ -1,10 +1,11 @@
 @extends('layouts.default')
 
 @section('content')
-<div id="app">
-    <example-component>
+<div class="container">
+    <h3>{{ __('Most rescent threads')}}</h3>
+    <threads>
         Carregando
-    </example-component>
+    </threads>
 </div>
 @endsection
 
