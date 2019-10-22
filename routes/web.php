@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('threads.index');
 });
+
+Route::get('/threads/{id}', function ($id) {
+    if (!is_numeric($id)) {
+        abort(404, 'Not found');
+    }
+    $result = \App\Thread::findOrFail($id);
+    return view('threads.view', compact('result'));
+});
