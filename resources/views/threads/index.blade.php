@@ -3,7 +3,7 @@
 @section('content')
 <div id="app">
     <example-component>
-        Carregandod
+        Carregando
     </example-component>
 </div>
 @endsection

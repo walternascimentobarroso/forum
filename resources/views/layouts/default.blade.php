@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
-    <header>
-        @include('layouts.default.header')
-    </header>
+
+    @include('layouts.default.header')
 
     <main>
         <section>
@@ -20,9 +20,7 @@
         </section>
     </main>
 
-    <footer>
-        @include('layouts.default.footer')
-    </footer>
+    @include('layouts.default.footer')
 
     @component('layouts.default.body_scripts')
     @yield('scripts')
