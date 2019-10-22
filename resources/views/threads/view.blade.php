@@ -8,5 +8,13 @@
             {{ $result->body }}
         </div>
     </div>
+
+    <replies>
+        @include('layouts.default.preloader')
+    </replies>
 </div>
+@endsection
+
+@section('scripts')
+<script src="/js/replies.js"></script>
 @endsection
