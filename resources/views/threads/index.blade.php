@@ -1,11 +1,13 @@
-<meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.default')
+
+@section('content')
 <div id="app">
     <example-component>
         Carregandod
     </example-component>
 </div>
+@endsection
 
-<script src="/js/manifest.js"></script>
-<script src="/js/vendor.js"></script>
-<script src="/js/boostrap.js"></script>
+@section('scripts')
 <script src="/js/threads.js"></script>
+@endsection
