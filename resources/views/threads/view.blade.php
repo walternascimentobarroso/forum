@@ -9,7 +9,8 @@
         </div>
     </div>
 
-    <replies>
+    <replies replied="{{ __('replied') }}" reply="{{ __('Reply') }}" your-answer="{{ __('Your answer') }}"
+        send="{{ __('Send') }}">
         @include('layouts.default.preloader')
     </replies>
 </div>

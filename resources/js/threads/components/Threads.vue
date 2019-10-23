@@ -1,14 +1,14 @@
 <template>
   <div class="card">
     <div class="card-content">
-      <span class="card-title">Threads</span>
+      <span class="card-title">{{ title }}</span>
 
       <table>
         <thead>
           <tr>
             <th>#</th>
-            <th>Thread</th>
-            <th>Reply</th>
+            <th>{{ threads }}</th>
+            <th>{{ replies }}</th>
             <th></th>
           </tr>
         </thead>
@@ -18,7 +18,7 @@
             <td>Tópico legal que vamos puzar no laravel</td>
             <td>3</td>
             <td>
-              <a href="/threads/1">open</a>
+              <a href="/threads/1">{{ open }}</a>
             </td>
           </tr>
         </tbody>
@@ -28,5 +28,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["title", "threads", "replies", "open"]
+};
 </script>
