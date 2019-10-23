@@ -26,6 +26,9 @@
     @yield('scripts')
     @endcomponent
 
+    <script>
+        $(".dropdown-trigger").dropdown();
+    </script>
 </body>
 
 </html>
