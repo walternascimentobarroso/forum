@@ -32,6 +32,7 @@ Route::get('/locale/{locale}', function ($locale) {
 Route::middleware(['auth'])->group(function () {
     Route::get('/threads', 'ThreadController@index');
     Route::post('/threads', 'ThreadController@store');
+    Route::put('/threads/{thread}', 'ThreadController@update');
 });
 
 Auth::routes();

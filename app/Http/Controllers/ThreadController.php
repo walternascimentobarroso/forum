@@ -37,9 +37,9 @@ class ThreadController extends Controller
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function update(ThreadsRequest $request, Thread $thread)
+    public function update(Request $request, Thread $thread)
     {
-        $this->authorize('update', $thread);
+        // $this->authorize('update', $thread);
         $thread->title = $request->input('title');
         $thread->body = $request->input('body');
         $thread->update();

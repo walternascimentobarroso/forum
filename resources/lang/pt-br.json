@@ -1,5 +1,5 @@
 {
-    "Most rescent threads": "Tópicos mais recentes",
+    "Most rescent threads": "Tópicos mais rescentes",
     "Loading": "Carregando",
     "Threads": "Tópicos",
     "Replies": "Respostas",
@@ -9,6 +9,9 @@
     "Your answer": "Sua resposta",
     "Send": "Enviar",
     "Language": "Idioma",
-    "Portuguese": "Português",
-    "English": "Inglês"
+    "New thread": "Novo tópico",
+    "Title": "Título",
+    "Body": "Corpo",
+    "Edit": "Editar",
+    "Back": "Voltar"
 }
