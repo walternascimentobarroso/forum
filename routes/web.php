@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/threads', 'ThreadController@index');
     Route::post('/threads', 'ThreadController@store');
     Route::put('/threads/{thread}', 'ThreadController@update');
+    Route::get('/threads/{thread}/edit', function (\App\Thread $thread) {
+        return view('threads.edit', compact('thread'));
+    });
 });
 
 Auth::routes();

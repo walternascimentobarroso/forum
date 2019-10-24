@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Thread;
 use Illuminate\Http\Request;
+use App\Http\Requests\ThreadsRequest;
 
 class ThreadController extends Controller
 {
@@ -20,7 +21,7 @@ class ThreadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ThreadsRequest $request)
     {
         $thread = new Thread;
         $thread->title = $request->input('title');
@@ -37,9 +38,9 @@ class ThreadController extends Controller
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Thread $thread)
+    public function update(ThreadsRequest $request, Thread $thread)
     {
-        // $this->authorize('update', $thread);
+        $this->authorize('update', $thread);
         $thread->title = $request->input('title');
         $thread->body = $request->input('body');
         $thread->update();
