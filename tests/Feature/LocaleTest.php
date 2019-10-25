@@ -21,7 +21,7 @@ class LocaleTest extends TestCase
 
     public function testTranslation()
     {
-        $response = $this->withSession(['locale' => 'pt-br'])->get('/');
-        $response->assertSee('Tópicos mais recentes');
+        $response = $this->withSession(['locale'=>'pt-br'])->get('/');
+        $response->assertSee('Tópicos mais rescentes');
     }
 }
