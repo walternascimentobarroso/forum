@@ -14,7 +14,6 @@ class ReplyController extends Controller
             ->get();
         return $replies;
     }
-
     public function highligth($id)
     {
         $reply = Reply::find($id);
@@ -30,16 +29,15 @@ class ReplyController extends Controller
         $reply->save();
         return redirect('threads/' . $reply->thread_id);
     }
-
     public function store(ReplyRequest $request)
     {
         $reply = new Reply;
         $reply->body = $request->input('body');
         $reply->thread_id = $request->input('thread_id');
         $reply->user_id = \Auth::user()->id;
-        // $this->authorize('isClosed', $reply);
+        $this->authorize('isClosed', $reply);
         $reply->save();
-        // broadcast(new NewReply($reply));
+        broadcast(new NewReply($reply));
         return response()->json($reply);
     }
 }

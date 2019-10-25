@@ -1,13 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Events\NewThread;
 use App\Thread;
 use Illuminate\Http\Request;
 use App\Http\Requests\ThreadsRequest;
 
 class ThreadController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         // $threads = Thread::orderBy('fixed', 'desc')
@@ -21,6 +26,7 @@ class ThreadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(ThreadsRequest $request)
     {
         $thread = new Thread;
@@ -28,9 +34,10 @@ class ThreadController extends Controller
         $thread->body = $request->input('body');
         $thread->user_id = \Auth::user()->id;
         $thread->save();
-        // broadcast(new NewThread($thread));
+        broadcast(new NewThread($thread));
         return response()->json(['created' => 'success', 'data'=>$thread]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -46,6 +53,7 @@ class ThreadController extends Controller
         $thread->update();
         return redirect('/threads/' . $thread->id);
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -56,6 +64,7 @@ class ThreadController extends Controller
     {
         //
     }
+
     public function pin(Thread $thread)
     {
         $this->authorize('isAdmin', $thread);
@@ -63,6 +72,7 @@ class ThreadController extends Controller
         $thread->save();
         return redirect('/');
     }
+
     public function close(Thread $thread)
     {
         $this->authorize('isAdmin', $thread);
