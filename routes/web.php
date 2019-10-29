@@ -35,12 +35,17 @@ Route::get('/replies/{id}', 'ReplyController@show');
 Route::get('/threads', 'ThreadController@index');
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/threads', 'ThreadController@store');
-    Route::put('/threads/{thread}', 'ThreadController@update');
+    Route::post('/threads', 'ThreadsController@store');
+    Route::put('/threads/{thread}', 'ThreadsController@update');
     Route::get('/threads/{thread}/edit', function (\App\Thread $thread) {
         return view('threads.edit', compact('thread'));
     });
-    Route::post('/replies', 'ReplyController@store');
+    Route::get('/reply/highligth/{id}', 'RepliesController@highligth');
+    Route::get('/thread/pin/{thread}', 'ThreadsController@pin');
+    Route::get('/thread/close/{thread}', 'ThreadsController@close');
+    Route::get('/profile', 'ProfileController@edit');
+    Route::post('/profile', 'ProfileController@update');
+    Route::post('/replies', 'RepliesController@store');
 });
 
 Auth::routes();
