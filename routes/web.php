@@ -28,15 +28,15 @@ Route::get('/locale/{locale}', function ($locale) {
     return back();
 });
 
+Route::get('/replies/{id}', 'ReplyController@show');
+Route::get('/threads', 'ThreadController@index');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/threads', 'ThreadController@index');
     Route::post('/threads', 'ThreadController@store');
     Route::put('/threads/{thread}', 'ThreadController@update');
     Route::get('/threads/{thread}/edit', function (\App\Thread $thread) {
         return view('threads.edit', compact('thread'));
     });
-    Route::get('/replies/{id}', 'ReplyController@show');
     Route::post('/replies', 'ReplyController@store');
 });
 
