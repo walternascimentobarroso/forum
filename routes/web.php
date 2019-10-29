@@ -28,6 +28,9 @@ Route::get('/locale/{locale}', function ($locale) {
     return back();
 });
 
+Route::get('/login/{provider}', 'SocialAuthController@redirect');
+Route::get('/login/{provider}/callback', 'SocialAuthController@callback');
+
 Route::get('/replies/{id}', 'ReplyController@show');
 Route::get('/threads', 'ThreadController@index');
 
